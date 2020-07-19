@@ -17,6 +17,8 @@
 import UIKit
 import MessageKit
 import InputBarAccessoryView
+import AssistantV2
+import IBMSwiftSDKCore
 
 struct Sender: SenderType {
     var senderId: String
@@ -38,6 +40,9 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     let assistantUser = Sender(senderId: UUID().uuidString, displayName: "Watson")
     var messages = [MessageType]()
     
+    let assistant = Assistant(version: Constants.ASSISTANT_VERSION, authenticator: WatsonIAMAuthenticator(apiKey: Constants.ASSISTANT_APIKEY))
+    var sessionID = ""
+    
     // MARK: - Lifecycle events
 
     override func viewDidLoad() {
@@ -52,6 +57,16 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
             layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
             layout.textMessageSizeCalculator.incomingAvatarSize = .zero
         }
+        
+        assistant.serviceURL = Constants.ASSISTANT_URL
+        assistant.createSession(assistantID: Constants.ASSISTANT_ID) { response, error in
+            guard let session = response?.result else {
+                return
+            }
+            self.sessionID = session.sessionID
+            self.send(message: "")
+        }
+        
     }
     
     // MARK: - MessagesDataSource
@@ -81,7 +96,28 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
             inputBar.inputTextView.text = String()
             inputBar.invalidatePlugins()
             DispatchQueue.main.async {
-                self.messages.append(Message(sender: self.currentUser, messageId: UUID().uuidString, sentDate: Date(), kind: .text(textMessage)))
+                self.messages.append(Message(sender: self.currentUser, messageId: UUID().uuidString, sentDate: Date(), kind: .text(textMessage.trimmingCharacters(in: .whitespacesAndNewlines))))
+                self.messagesCollectionView.reloadData()
+                self.messagesCollectionView.scrollToBottom()
+                self.send(message: textMessage.trimmingCharacters(in: .whitespacesAndNewlines))
+            }
+        }
+    }
+    
+    private func send(message: String) {
+        let input = MessageInput(messageType: "text", text: message)
+        assistant.message(assistantID: Constants.ASSISTANT_ID, sessionID: sessionID, input: input) { response, error in
+            guard let message = response?.result else {
+                return
+            }
+            if let generic = message.output.generic {
+                for runtimeResponse in generic {
+                    if let text = runtimeResponse.text {
+                        self.messages.append(Message(sender: self.assistantUser, messageId: UUID().uuidString, sentDate: Date(), kind: .text(text)))
+                    }
+                }
+            }
+            DispatchQueue.main.async {
                 self.messagesCollectionView.reloadData()
                 self.messagesCollectionView.scrollToBottom()
             }
