@@ -18,6 +18,11 @@
 		221AB03924AAAD1100731DD6 /* Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 221AB03724AAAD1100731DD6 /* Assistant.xcdatamodeld */; };
 		221AB03B24AAAD1500731DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221AB03A24AAAD1500731DD6 /* Assets.xcassets */; };
 		221AB03E24AAAD1500731DD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221AB03C24AAAD1500731DD6 /* LaunchScreen.storyboard */; };
+		22D60EC824C7C96600204043 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D60EC724C7C96600204043 /* Sender.swift */; };
+		22D60ECA24C7C9C900204043 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D60EC924C7C9C900204043 /* Message.swift */; };
+		22D60ECD24C7CBCF00204043 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D60ECC24C7CBCF00204043 /* ChatViewModel.swift */; };
+		22D60ED124C7D0A000204043 /* WatsonAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D60ED024C7D0A000204043 /* WatsonAssistant.swift */; };
+		22D60ED324C9472000204043 /* ChatViewModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D60ED224C9472000204043 /* ChatViewModelClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +40,11 @@
 		221AB03A24AAAD1500731DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		221AB03D24AAAD1500731DD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		221AB03F24AAAD1500731DD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22D60EC724C7C96600204043 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		22D60EC924C7C9C900204043 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		22D60ECC24C7CBCF00204043 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		22D60ED024C7D0A000204043 /* WatsonAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatsonAssistant.swift; sourceTree = "<group>"; };
+		22D60ED224C9472000204043 /* ChatViewModelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,23 +86,68 @@
 			children = (
 				221AB02E24AAAD1100731DD6 /* AppDelegate.swift */,
 				221AB03024AAAD1100731DD6 /* SceneDelegate.swift */,
-				221AB03224AAAD1100731DD6 /* ChatViewController.swift */,
-				2201AEFD24C3F2EB008607BB /* Constants.swift */,
-				22DEA88B24B108C300B935E6 /* Resources */,
+				221AB03C24AAAD1500731DD6 /* LaunchScreen.storyboard */,
+				221AB03A24AAAD1500731DD6 /* Assets.xcassets */,
 				221AB03F24AAAD1500731DD6 /* Info.plist */,
 				221AB03724AAAD1100731DD6 /* Assistant.xcdatamodeld */,
+				22D60EC624C7C94400204043 /* Model */,
+				22D60ED524C94E9900204043 /* View */,
+				22D60ECB24C7CB8000204043 /* ViewModel */,
+				22D60ECF24C7D09700204043 /* Services */,
+				22D60ED424C94C5300204043 /* Utility */,
 			);
 			path = Assistant;
 			sourceTree = "<group>";
 		};
-		22DEA88B24B108C300B935E6 /* Resources */ = {
+		22D60EC624C7C94400204043 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22D60EC724C7C96600204043 /* Sender.swift */,
+				22D60EC924C7C9C900204043 /* Message.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22D60ECB24C7CB8000204043 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				22D60ECC24C7CBCF00204043 /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		22D60ECF24C7D09700204043 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				22D60ED024C7D0A000204043 /* WatsonAssistant.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		22D60ED424C94C5300204043 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2201AEFD24C3F2EB008607BB /* Constants.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		22D60ED524C94E9900204043 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				221AB03424AAAD1100731DD6 /* Main.storyboard */,
-				221AB03A24AAAD1500731DD6 /* Assets.xcassets */,
-				221AB03C24AAAD1500731DD6 /* LaunchScreen.storyboard */,
+				22D60ED624C94EB000204043 /* Chat */,
 			);
-			path = Resources;
+			path = View;
+			sourceTree = "<group>";
+		};
+		22D60ED624C94EB000204043 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				221AB03224AAAD1100731DD6 /* ChatViewController.swift */,
+				22D60ED224C9472000204043 /* ChatViewModelClass.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,9 +251,14 @@
 			files = (
 				2201AEFE24C3F2EB008607BB /* Constants.swift in Sources */,
 				221AB03924AAAD1100731DD6 /* Assistant.xcdatamodeld in Sources */,
+				22D60ECD24C7CBCF00204043 /* ChatViewModel.swift in Sources */,
 				221AB03324AAAD1100731DD6 /* ChatViewController.swift in Sources */,
 				221AB02F24AAAD1100731DD6 /* AppDelegate.swift in Sources */,
+				22D60ED324C9472000204043 /* ChatViewModelClass.swift in Sources */,
+				22D60EC824C7C96600204043 /* Sender.swift in Sources */,
 				221AB03124AAAD1100731DD6 /* SceneDelegate.swift in Sources */,
+				22D60ED124C7D0A000204043 /* WatsonAssistant.swift in Sources */,
+				22D60ECA24C7C9C900204043 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
