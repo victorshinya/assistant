@@ -38,6 +38,28 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
             layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
             layout.textMessageSizeCalculator.incomingAvatarSize = .zero
         }
+        
+        messageInputBar.isTranslucent = false
+        messageInputBar.separatorLine.isHidden = true
+        messageInputBar.inputTextView.backgroundColor = UIColor(white: 1, alpha: 0)
+        messageInputBar.inputTextView.placeholder = "Text Message"
+        messageInputBar.inputTextView.placeholderTextColor = UIColor.systemGray
+        messageInputBar.inputTextView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 38)
+        messageInputBar.inputTextView.placeholderLabelInsets = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 38)
+        messageInputBar.inputTextView.layer.borderColor = UIColor.systemGray.cgColor
+        messageInputBar.inputTextView.layer.borderWidth = 1.0
+        messageInputBar.inputTextView.layer.cornerRadius = 19.0
+        messageInputBar.inputTextView.layer.masksToBounds = true
+        messageInputBar.setRightStackViewWidthConstant(to: 36, animated: false)
+        messageInputBar.setStackViewItems([messageInputBar.sendButton], forStack: .right, animated: true)
+        messageInputBar.sendButton.imageView?.backgroundColor = UIColor.systemGreen
+        messageInputBar.sendButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 4, right: 2)
+        messageInputBar.sendButton.setSize(CGSize(width: 36, height: 36), animated: true)
+        messageInputBar.sendButton.image = UIImage(imageLiteralResourceName: "arrow.up")
+        messageInputBar.sendButton.title = nil
+        messageInputBar.sendButton.imageView?.layer.cornerRadius = 16
+        messageInputBar.middleContentViewPadding.right = -38
+        messageInputBar.middleContentViewPadding.top = 20
     }
     
     // MARK: - MessagesDataSource
