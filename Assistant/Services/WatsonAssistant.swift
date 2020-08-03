@@ -20,19 +20,28 @@ import IBMSwiftSDKCore
 
 class WatsonAssistant {
     
-    let assistant: Assistant
+    var assistant: Assistant? = nil
+    var apiKey: String = ""
+    var assistantID: String = ""
     var sessionID: String = ""
     
     init() {
-        self.assistant = Assistant(version: Constants.ASSISTANT_VERSION, authenticator: WatsonIAMAuthenticator(apiKey: Constants.ASSISTANT_APIKEY))
-        self.assistant.serviceURL = Constants.ASSISTANT_URL
-        self.newSession { sessionID in
+        self.newAssistant()
+    }
+    
+    func newAssistant() {
+        let preferences = UserDefaults.standard
+        apiKey = preferences.string(forKey: Constants.KEY_ASSISTANT_APIKEY) ?? ""
+        assistantID = preferences.string(forKey: Constants.KEY_ASSISTANT_ID) ?? ""
+        assistant = Assistant(version: Constants.ASSISTANT_VERSION, authenticator: WatsonIAMAuthenticator(apiKey: self.apiKey))
+        assistant?.serviceURL = Constants.ASSISTANT_URL
+        newSession { sessionID in
             self.sessionID = sessionID
         }
     }
     
     private func newSession(completion: @escaping (String) -> Void) {
-        assistant.createSession(assistantID: Constants.ASSISTANT_ID) { response, error in
+        assistant?.createSession(assistantID: self.assistantID) { response, error in
             guard let session = response?.result else {
                 return
             }
@@ -42,7 +51,7 @@ class WatsonAssistant {
     
     func send(_ message: String, completion: @escaping (String) -> Void) {
         let input = MessageInput(messageType: "text", text: message)
-        assistant.message(assistantID: Constants.ASSISTANT_ID, sessionID: sessionID, input: input) { response, error in
+        assistant?.message(assistantID: assistantID, sessionID: sessionID, input: input) { response, error in
             guard let message = response?.result else {
                 return
             }

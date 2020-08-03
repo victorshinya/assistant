@@ -18,6 +18,11 @@
 		221AB03924AAAD1100731DD6 /* Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 221AB03724AAAD1100731DD6 /* Assistant.xcdatamodeld */; };
 		221AB03B24AAAD1500731DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221AB03A24AAAD1500731DD6 /* Assets.xcassets */; };
 		221AB03E24AAAD1500731DD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221AB03C24AAAD1500731DD6 /* LaunchScreen.storyboard */; };
+		2256C33E24CE85A3006477A8 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256C33D24CE85A3006477A8 /* ConfigurationViewController.swift */; };
+		2256C34124CFA647006477A8 /* ConfigurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256C33F24CFA647006477A8 /* ConfigurationTableViewCell.swift */; };
+		2256C34224CFA647006477A8 /* ConfigurationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2256C34024CFA647006477A8 /* ConfigurationTableViewCell.xib */; };
+		2256C34424CFAD4A006477A8 /* ConfigurationViewModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256C34324CFAD4A006477A8 /* ConfigurationViewModelClass.swift */; };
+		22B1A65624D7D1EE006978ED /* ConfigurationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1A65524D7D1EE006978ED /* ConfigurationViewModel.swift */; };
 		22D60EC824C7C96600204043 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D60EC724C7C96600204043 /* Sender.swift */; };
 		22D60ECA24C7C9C900204043 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D60EC924C7C9C900204043 /* Message.swift */; };
 		22D60ECD24C7CBCF00204043 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D60ECC24C7CBCF00204043 /* ChatViewModel.swift */; };
@@ -40,6 +45,11 @@
 		221AB03A24AAAD1500731DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		221AB03D24AAAD1500731DD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		221AB03F24AAAD1500731DD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2256C33D24CE85A3006477A8 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
+		2256C33F24CFA647006477A8 /* ConfigurationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTableViewCell.swift; sourceTree = "<group>"; };
+		2256C34024CFA647006477A8 /* ConfigurationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationTableViewCell.xib; sourceTree = "<group>"; };
+		2256C34324CFAD4A006477A8 /* ConfigurationViewModelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewModelClass.swift; sourceTree = "<group>"; };
+		22B1A65524D7D1EE006978ED /* ConfigurationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewModel.swift; sourceTree = "<group>"; };
 		22D60EC724C7C96600204043 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		22D60EC924C7C9C900204043 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		22D60ECC24C7CBCF00204043 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -99,6 +109,17 @@
 			path = Assistant;
 			sourceTree = "<group>";
 		};
+		2256C33C24CE8575006477A8 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				2256C33D24CE85A3006477A8 /* ConfigurationViewController.swift */,
+				2256C34324CFAD4A006477A8 /* ConfigurationViewModelClass.swift */,
+				2256C33F24CFA647006477A8 /* ConfigurationTableViewCell.swift */,
+				2256C34024CFA647006477A8 /* ConfigurationTableViewCell.xib */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		22D60EC624C7C94400204043 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				22D60ECC24C7CBCF00204043 /* ChatViewModel.swift */,
+				22B1A65524D7D1EE006978ED /* ConfigurationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -137,6 +159,7 @@
 			children = (
 				221AB03424AAAD1100731DD6 /* Main.storyboard */,
 				22D60ED624C94EB000204043 /* Chat */,
+				2256C33C24CE8575006477A8 /* Configuration */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +234,7 @@
 			files = (
 				221AB03E24AAAD1500731DD6 /* LaunchScreen.storyboard in Resources */,
 				221AB03B24AAAD1500731DD6 /* Assets.xcassets in Resources */,
+				2256C34224CFA647006477A8 /* ConfigurationTableViewCell.xib in Resources */,
 				221AB03624AAAD1100731DD6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,14 +274,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2201AEFE24C3F2EB008607BB /* Constants.swift in Sources */,
+				22B1A65624D7D1EE006978ED /* ConfigurationViewModel.swift in Sources */,
 				221AB03924AAAD1100731DD6 /* Assistant.xcdatamodeld in Sources */,
+				2256C33E24CE85A3006477A8 /* ConfigurationViewController.swift in Sources */,
 				22D60ECD24C7CBCF00204043 /* ChatViewModel.swift in Sources */,
 				221AB03324AAAD1100731DD6 /* ChatViewController.swift in Sources */,
 				221AB02F24AAAD1100731DD6 /* AppDelegate.swift in Sources */,
 				22D60ED324C9472000204043 /* ChatViewModelClass.swift in Sources */,
 				22D60EC824C7C96600204043 /* Sender.swift in Sources */,
+				2256C34124CFA647006477A8 /* ConfigurationTableViewCell.swift in Sources */,
 				221AB03124AAAD1100731DD6 /* SceneDelegate.swift in Sources */,
 				22D60ED124C7D0A000204043 /* WatsonAssistant.swift in Sources */,
+				2256C34424CFAD4A006477A8 /* ConfigurationViewModelClass.swift in Sources */,
 				22D60ECA24C7C9C900204043 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

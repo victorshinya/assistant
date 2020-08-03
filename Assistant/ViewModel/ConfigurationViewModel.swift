@@ -16,10 +16,13 @@
 
 import Foundation
 
-struct Constants {
-    static let ASSISTANT_VERSION = "2020-04-01"
-    static let ASSISTANT_URL = "https://api.us-south.assistant.watson.cloud.ibm.com"
+protocol ConfigurationViewModel {
     
-    static let KEY_ASSISTANT_APIKEY = "KEY_ASSISTANT_APIKEY"
-    static let KEY_ASSISTANT_ID = "KEY_ASSISTANT_ID"
+    var tableStructure: [[ServiceCredential]] { get }
+    var cellLabel: [String] { get }
+    var cellIdentifier: String { get }
+    
+    func save(data: String, from credential: ServiceCredential)
+    func get(credential: ServiceCredential) -> String
+    
 }

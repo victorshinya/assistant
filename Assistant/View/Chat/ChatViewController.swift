@@ -62,6 +62,14 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         messageInputBar.middleContentViewPadding.top = 20
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if (viewModel.watson.sessionID.isEmpty) {
+            viewModel.watson.newAssistant()
+        }
+    }
+    
     // MARK: - MessagesDataSource
     
     func currentSender() -> SenderType {
